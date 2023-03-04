@@ -22,6 +22,10 @@
         ports:
           - "5000:80"
 
+Save the file and open the terminal cd into the same directory and run 
+
+    docker compose up
+
 This will create two docker containers one for Postgres and one for PGadmin, in order for you to connect to Postgres on PGadmin check for the local IP address of Docker and add that as a host and the port you configured which in our case was 5432 as the port along with other detailes.
 Then create a database called perntodo by running this code:
 
