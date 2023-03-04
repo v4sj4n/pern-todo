@@ -33,7 +33,11 @@ export default function EditTodo({ todo }) {
         Edit
       </button>
 
-      <div className="modal" id={`id${todo.todo_id}`}>
+      <div
+        className="modal"
+        id={`id${todo.todo_id}`}
+        onClick={() => setDescription(todo.description)}
+      >
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -42,6 +46,7 @@ export default function EditTodo({ todo }) {
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="modal"
+                onClick={() => setDescription(todo.description)}
               ></button>
             </div>
 
@@ -67,6 +72,7 @@ export default function EditTodo({ todo }) {
                 type="button"
                 className="btn btn-danger"
                 data-bs-dismiss="modal"
+                onClick={() => setDescription(todo.description)}
               >
                 Close
               </button>

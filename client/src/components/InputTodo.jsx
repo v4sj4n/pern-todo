@@ -1,18 +1,18 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 export default function InputTodo() {
-  const [description, setDescription] = useState("")
+  const [description, setDescription] = useState('')
 
   const onSubmitForm = async (e) => {
     e.preventDefault()
     try {
       const body = { description }
-      const response = await fetch("http://localhost:4444/todos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('http://localhost:4444/todos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      window.location = "/"
+      window.location = '/'
     } catch (err) {
       console.error(err.message)
     }
