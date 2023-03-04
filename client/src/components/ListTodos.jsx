@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
+import EditTodo from './EditTodo'
 
 export default function ListTodos() {
   const [todos, setTodos] = useState([])
@@ -7,7 +8,7 @@ export default function ListTodos() {
   const deleteTodo = async (id) => {
     try {
       const deleteTodo = await fetch(`http://localhost:4444/todos/${id}`, {
-        method: "DELETE",
+        method: 'DELETE',
       })
       setTodos(todos.filter((todo) => todo.todo_id !== id))
     } catch (err) {
@@ -17,7 +18,7 @@ export default function ListTodos() {
   // Get all todos
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:4444/todos")
+      const response = await fetch('http://localhost:4444/todos')
       const jsonData = await response.json()
 
       setTodos(jsonData)
@@ -41,15 +42,13 @@ export default function ListTodos() {
           </tr>
         </thead>
         <tbody>
-          {/* <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr> */}
           {todos.map((todo) => (
             <tr key={todo.todo_id}>
               <td>{todo.description}</td>
-              <td>Edit</td>
+              <td>
+                {' '}
+                <EditTodo todo={todo} />{' '}
+              </td>
               <td>
                 <button
                   className="btn btn-danger"
